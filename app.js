@@ -4,53 +4,52 @@
  */
 
 const defaultTemplates = {
-	code: {
-		title: "Code Agent",
-		fields: [
-			{
-				id: "techStack",
-				label: "Tech Stack",
-				type: "text",
-				suggestions: [
-					"React + Node",
-					"Python UI",
-					"Vanilla JS",
-					"Next.js + Tailwind",
-				],
-			},
-			{
-				id: "aim",
-				label: "Aim",
-				type: "text",
-				suggestions: [
-					"Build New Feature",
-					"Refactor Existing Code",
-					"Debug Issue",
-					"Setup Infrastructure",
-				],
-			},
-			{
-				id: "goal",
-				label: "Goal",
-				type: "textarea",
-				placeholder:
-					"e.g., Implement user authentication with JWT...",
-			},
-			{
-				id: "settings",
-				label: "Other Settings",
-				type: "text",
-				suggestions: [
-					"TDD approach",
-					"Strict TypeScript",
-					"Performance focused",
-					"Focus on Accessibility",
-				],
-			},
-		],
-		generate: (
-			values,
-		) => `You are an expert Software Engineer and AI Pair Programmer.
+    code: {
+        title: "Code Agent",
+        fields: [
+            {
+                id: "techStack",
+                label: "Tech Stack",
+                type: "text",
+                suggestions: [
+                    "React + Node",
+                    "Python UI",
+                    "Vanilla JS",
+                    "Next.js + Tailwind",
+                ],
+            },
+            {
+                id: "aim",
+                label: "Aim",
+                type: "text",
+                suggestions: [
+                    "Build New Feature",
+                    "Refactor Existing Code",
+                    "Debug Issue",
+                    "Setup Infrastructure",
+                ],
+            },
+            {
+                id: "goal",
+                label: "Goal",
+                type: "textarea",
+                placeholder: "e.g., Implement user authentication with JWT...",
+            },
+            {
+                id: "settings",
+                label: "Other Settings",
+                type: "text",
+                suggestions: [
+                    "TDD approach",
+                    "Strict TypeScript",
+                    "Performance focused",
+                    "Focus on Accessibility",
+                ],
+            },
+        ],
+        generate: (
+            values,
+        ) => `You are an expert Software Engineer and AI Pair Programmer.
 Your goal is to provide a detailed, step-by-step implementation plan for the following task.
 
 **Requirements & Constraints:**
@@ -69,40 +68,40 @@ Your goal is to provide a detailed, step-by-step implementation plan for the fol
 ${values.goal || "[Please provide a goal]"}
 
 Please respond with your plan formatted in Markdown.`,
-	},
-	research: {
-		title: "Research Agent",
-		fields: [
-			{
-				id: "topic",
-				label: "Topic",
-				type: "text",
-				suggestions: [
-					"Latest AI trends",
-					"React Performance",
-					"Database Scaling",
-				],
-			},
-			{
-				id: "focus",
-				label: "Focus Areas",
-				type: "text",
-				suggestions: [
-					"Academic Papers",
-					"Official Documentation",
-					"Practical Tutorials",
-					"Compare tools",
-				],
-			},
-			{
-				id: "goal",
-				label: "Specific Question",
-				type: "textarea",
-				placeholder:
-					"e.g., What are the best practices for handling timezone data in PostgreSQL?",
-			},
-		],
-		generate: (values) => `You are an expert Research Analyst Agent.
+    },
+    research: {
+        title: "Research Agent",
+        fields: [
+            {
+                id: "topic",
+                label: "Topic",
+                type: "text",
+                suggestions: [
+                    "Latest AI trends",
+                    "React Performance",
+                    "Database Scaling",
+                ],
+            },
+            {
+                id: "focus",
+                label: "Focus Areas",
+                type: "text",
+                suggestions: [
+                    "Academic Papers",
+                    "Official Documentation",
+                    "Practical Tutorials",
+                    "Compare tools",
+                ],
+            },
+            {
+                id: "goal",
+                label: "Specific Question",
+                type: "textarea",
+                placeholder:
+                    "e.g., What are the best practices for handling timezone data in PostgreSQL?",
+            },
+        ],
+        generate: (values) => `You are an expert Research Analyst Agent.
 Your goal is to comprehensively research the given topic using web search tools and/or local documentation folders.
 
 **Instructions:**
@@ -121,41 +120,41 @@ ${values.topic || "[Please provide a topic]"}
 ${values.goal || "[None]"}
 
 Please present your findings in a comprehensive Markdown report.`,
-	},
-	design: {
-		title: "Design Agent",
-		fields: [
-			{
-				id: "style",
-				label: "Design Style",
-				type: "text",
-				suggestions: [
-					"Minimalism",
-					"Glassmorphism",
-					"Material Design",
-					"Neumorphism",
-				],
-			},
-			{
-				id: "color",
-				label: "Color Palette Preference",
-				type: "text",
-				suggestions: [
-					"Dark Mode",
-					"Vibrant Pastels",
-					"Monochrome",
-					"High Contrast",
-				],
-			},
-			{
-				id: "goal",
-				label: "Project Description",
-				type: "textarea",
-				placeholder:
-					"e.g., A personal portfolio website for a freelance photographer...",
-			},
-		],
-		generate: (values) => `You are an expert UX/UI Designer Agent.
+    },
+    design: {
+        title: "Design Agent",
+        fields: [
+            {
+                id: "style",
+                label: "Design Style",
+                type: "text",
+                suggestions: [
+                    "Minimalism",
+                    "Glassmorphism",
+                    "Material Design",
+                    "Neumorphism",
+                ],
+            },
+            {
+                id: "color",
+                label: "Color Palette Preference",
+                type: "text",
+                suggestions: [
+                    "Dark Mode",
+                    "Vibrant Pastels",
+                    "Monochrome",
+                    "High Contrast",
+                ],
+            },
+            {
+                id: "goal",
+                label: "Project Description",
+                type: "textarea",
+                placeholder:
+                    "e.g., A personal portfolio website for a freelance photographer...",
+            },
+        ],
+        generate: (values) => `You are an expert UX/UI Designer Agent.
 Your goal is to propose modern, aesthetically pleasing design patterns and color palettes for the specified project.
 
 **Focus Areas:**
@@ -172,7 +171,7 @@ Your goal is to propose modern, aesthetically pleasing design patterns and color
 ${values.goal || "[Please provide a project description]"}
 
 Please output your design proposals, including specific CSS variables or Tailwind classes if applicable, formatted in clear Markdown.`,
-	},
+    },
 };
 
 let customTemplates = {};
@@ -183,200 +182,188 @@ let isCustomTab = false;
  * Initializes the application, setting up event listeners and default state.
  */
 function init() {
-	loadCustomTemplates();
+    loadCustomTemplates();
 
-	const navButtons = document.querySelectorAll(".nav-btn");
-	const copyBtn = document.getElementById("copy-btn");
+    const navButtons = document.querySelectorAll(".nav-btn");
+    const copyBtn = document.getElementById("copy-btn");
 
-	// Set up navigation listeners
-	navButtons.forEach((btn) => {
-		btn.addEventListener("click", (e) =>
-			handleNavClick(e, navButtons),
-		);
-	});
+    // Set up navigation listeners
+    navButtons.forEach((btn) => {
+        btn.addEventListener("click", (e) => handleNavClick(e, navButtons));
+    });
 
-	// Set up copy listener
-	if (copyBtn) {
-		copyBtn.addEventListener("click", handleCopy);
-	}
+    // Set up copy listener
+    if (copyBtn) {
+        copyBtn.addEventListener("click", handleCopy);
+    }
 
-	setupThemeSwitcher();
-	setupHistoryDrawer();
-	setupChainDropdown();
+    setupThemeSwitcher();
+    setupHistoryDrawer();
+    setupChainDropdown();
 
-	// Load initial template
-	updateTemplateView("code");
+    // Load initial template
+    updateTemplateView("code");
 }
 
 const themes = ["dark", "light", "cyberpunk"];
 let currentThemeIndex = 0;
 
 function setupThemeSwitcher() {
-	const themeBtn = document.getElementById("theme-btn");
-	if (!themeBtn) return;
+    const themeBtn = document.getElementById("theme-btn");
+    if (!themeBtn) return;
 
-	// Load saved theme
-	const savedTheme = localStorage.getItem("pth_theme") || "dark";
-	currentThemeIndex =
-		themes.indexOf(savedTheme) !== -1
-			? themes.indexOf(savedTheme)
-			: 0;
-	applyTheme(themes[currentThemeIndex]);
+    // Load saved theme
+    const savedTheme = localStorage.getItem("pth_theme") || "dark";
+    currentThemeIndex =
+        themes.indexOf(savedTheme) !== -1 ? themes.indexOf(savedTheme) : 0;
+    applyTheme(themes[currentThemeIndex]);
 
-	themeBtn.addEventListener("click", () => {
-		currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-		const newTheme = themes[currentThemeIndex];
-		applyTheme(newTheme);
-	});
+    themeBtn.addEventListener("click", () => {
+        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+        const newTheme = themes[currentThemeIndex];
+        applyTheme(newTheme);
+    });
 }
 
 function applyTheme(theme) {
-	if (theme === "dark") {
-		document.documentElement.removeAttribute("data-theme");
-	} else {
-		document.documentElement.setAttribute("data-theme", theme);
-	}
-	localStorage.setItem("pth_theme", theme);
+    if (theme === "dark") {
+        document.documentElement.removeAttribute("data-theme");
+    } else {
+        document.documentElement.setAttribute("data-theme", theme);
+    }
+    localStorage.setItem("pth_theme", theme);
 }
 
 function setupHistoryDrawer() {
-	const toggleBtn = document.getElementById("history-toggle-btn");
-	const closeBtn = document.getElementById("close-history-btn");
-	const drawer = document.getElementById("history-drawer");
+    const toggleBtn = document.getElementById("history-toggle-btn");
+    const closeBtn = document.getElementById("close-history-btn");
+    const drawer = document.getElementById("history-drawer");
 
-	if (!toggleBtn || !drawer) return;
+    if (!toggleBtn || !drawer) return;
 
-	toggleBtn.addEventListener("click", () => {
-		drawer.classList.add("open");
-		renderHistoryDrawer();
-	});
+    toggleBtn.addEventListener("click", () => {
+        drawer.classList.add("open");
+        renderHistoryDrawer();
+    });
 
-	if (closeBtn) {
-		closeBtn.addEventListener("click", () => {
-			drawer.classList.remove("open");
-		});
-	}
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            drawer.classList.remove("open");
+        });
+    }
 }
 
 function setupChainDropdown() {
-	const chainBtn = document.getElementById("chain-btn");
-	const dropdown = document.getElementById("chain-dropdown");
+    const chainBtn = document.getElementById("chain-btn");
+    const dropdown = document.getElementById("chain-dropdown");
 
-	if (!chainBtn || !dropdown) return;
+    if (!chainBtn || !dropdown) return;
 
-	// Toggle dropdown
-	chainBtn.addEventListener("click", (e) => {
-		e.stopPropagation();
-		dropdown.classList.toggle("hidden");
-		populateChainDropdown();
-	});
+    // Toggle dropdown
+    chainBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle("hidden");
+        populateChainDropdown();
+    });
 
-	// Close dropdown when clicking outside
-	document.addEventListener("click", () => {
-		dropdown.classList.add("hidden");
-	});
+    // Close dropdown when clicking outside
+    document.addEventListener("click", () => {
+        dropdown.classList.add("hidden");
+    });
 }
 
 function populateChainDropdown() {
-	const dropdown = document.getElementById("chain-dropdown");
-	if (!dropdown) return;
+    const dropdown = document.getElementById("chain-dropdown");
+    if (!dropdown) return;
 
-	dropdown.innerHTML = "";
+    dropdown.innerHTML = "";
 
-	const templateKeys = Object.keys(customTemplates);
-	if (templateKeys.length === 0) {
-		dropdown.innerHTML =
-			'<div style="padding: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">No custom templates available.</div>';
-		return;
-	}
+    const templateKeys = Object.keys(customTemplates);
+    if (templateKeys.length === 0) {
+        dropdown.innerHTML =
+            '<div style="padding: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">No custom templates available.</div>';
+        return;
+    }
 
-	templateKeys.forEach((key) => {
-		const item = document.createElement("button");
-		item.className = "dropdown-item";
-		item.textContent = customTemplates[key].title;
-		item.addEventListener("click", () => {
-			const currentOutput =
-				document.getElementById(
-					"template-code",
-				).textContent;
-			sendToCustomTemplate(key, currentOutput);
-		});
-		dropdown.appendChild(item);
-	});
+    templateKeys.forEach((key) => {
+        const item = document.createElement("button");
+        item.className = "dropdown-item";
+        item.textContent = customTemplates[key].title;
+        item.addEventListener("click", () => {
+            const currentOutput =
+                document.getElementById("template-code").textContent;
+            sendToCustomTemplate(key, currentOutput);
+        });
+        dropdown.appendChild(item);
+    });
 }
 
 function sendToCustomTemplate(templateId, content) {
-	// Switch to Custom Tab
-	const customBtn = document.getElementById("btn-custom");
-	if (customBtn) customBtn.click();
+    // Switch to Custom Tab
+    const customBtn = document.getElementById("btn-custom");
+    if (customBtn) customBtn.click();
 
-	// Need to wait slightly for the view to render before selecting the template
-	setTimeout(() => {
-		const templateItems = document.querySelectorAll(
-			".custom-template-item",
-		);
-		// Find the correct item and simulate click
-		for (let item of templateItems) {
-			if (
-				item.querySelector("span").textContent ===
-				customTemplates[templateId].title
-			) {
-				item.click();
-				break;
-			}
-		}
+    // Need to wait slightly for the view to render before selecting the template
+    setTimeout(() => {
+        const templateItems = document.querySelectorAll(
+            ".custom-template-item",
+        );
+        // Find the correct item and simulate click
+        for (let item of templateItems) {
+            if (
+                item.querySelector("span").textContent ===
+                customTemplates[templateId].title
+            ) {
+                item.click();
+                break;
+            }
+        }
 
-		// Wait again for dynamic form to render
-		setTimeout(() => {
-			// Find the *last* input field in the dynamic form, assuming it's the main "context/content" field
-			// To be smarter, we look for a textarea, or default to the last input.
-			const formObj = document.getElementById(
-				"dynamic-variables-container",
-			);
-			if (formObj) {
-				const fields =
-					formObj.querySelectorAll(
-						"input, textarea",
-					);
-				if (fields.length > 0) {
-					const targetField =
-						formObj.querySelector(
-							"textarea",
-						) || fields[fields.length - 1];
-					targetField.value = content;
-					// Trigger input event to update preview
-					targetField.dispatchEvent(
-						new Event("input"),
-					);
-				}
-			}
-		}, 50);
-	}, 50);
+        // Wait again for dynamic form to render
+        setTimeout(() => {
+            // Find the *last* input field in the dynamic form, assuming it's the main "context/content" field
+            // To be smarter, we look for a textarea, or default to the last input.
+            const formObj = document.getElementById(
+                "dynamic-variables-container",
+            );
+            if (formObj) {
+                const fields = formObj.querySelectorAll("input, textarea");
+                if (fields.length > 0) {
+                    const targetField =
+                        formObj.querySelector("textarea") ||
+                        fields[fields.length - 1];
+                    targetField.value = content;
+                    // Trigger input event to update preview
+                    targetField.dispatchEvent(new Event("input"));
+                }
+            }
+        }, 50);
+    }, 50);
 }
 
 /**
  * Loads custom templates from localStorage.
  */
 function loadCustomTemplates() {
-	const saved = localStorage.getItem("pth_custom_templates");
-	if (saved) {
-		try {
-			customTemplates = JSON.parse(saved);
-		} catch (e) {
-			console.error("Failed to load custom templates", e);
-			customTemplates = {};
-		}
-	}
+    const saved = localStorage.getItem("pth_custom_templates");
+    if (saved) {
+        try {
+            customTemplates = JSON.parse(saved);
+        } catch (e) {
+            console.error("Failed to load custom templates", e);
+            customTemplates = {};
+        }
+    }
 }
 
 /**
  * Saves custom templates to localStorage.
  */
 function saveCustomTemplates() {
-	localStorage.setItem(
-		"pth_custom_templates",
-		JSON.stringify(customTemplates),
-	);
+    localStorage.setItem(
+        "pth_custom_templates",
+        JSON.stringify(customTemplates),
+    );
 }
 
 /**
@@ -385,446 +372,1003 @@ function saveCustomTemplates() {
  * @param {NodeList} navButtons - List of all navigation buttons.
  */
 function handleNavClick(event, navButtons) {
-	const targetId = event.currentTarget.getAttribute("data-target");
-	if (!targetId) return;
+    const targetId = event.currentTarget.getAttribute("data-target");
+    if (!targetId) return;
 
-	// Update active state on buttons
-	navButtons.forEach((btn) => {
-		btn.classList.remove("active");
-		btn.blur();
-	});
-	event.currentTarget.classList.add("active");
+    // Update active state on buttons
+    navButtons.forEach((btn) => {
+        btn.classList.remove("active");
+        btn.blur();
+    });
+    event.currentTarget.classList.add("active");
 
-	// Fade out current content
-	const contentArea = document.querySelector(".content-area");
-	contentArea.style.animation = "fadeOut 0.15s ease-out forwards";
+    // Fade out current content
+    const contentArea = document.querySelector(".content-area");
+    contentArea.style.animation = "fadeOut 0.15s ease-out forwards";
 
-	// Wait for fade out to complete, then swap content and fade in
-	setTimeout(() => {
-		if (targetId === "custom") {
-			isCustomTab = true;
-			renderCustomBuilderView();
-		} else {
-			isCustomTab = false;
-			// Clean out any custom dynamic form that might be lingering
-			const dContainer = document.getElementById(
-				"dynamic-variables-container",
-			);
-			if (dContainer) dContainer.innerHTML = "";
-			updateTemplateView(targetId);
-		}
+    // Wait for fade out to complete, then swap content and fade in
+    setTimeout(() => {
+        if (targetId === "custom") {
+            isCustomTab = true;
+            renderCustomBuilderView();
+        } else {
+            isCustomTab = false;
+            // Clean out any custom dynamic form that might be lingering
+            const dContainer = document.getElementById(
+                "dynamic-variables-container",
+            );
+            if (dContainer) dContainer.innerHTML = "";
+            updateTemplateView(targetId);
+        }
 
-		// Trigger reflow and fade in
-		contentArea.style.animation = "none";
-		contentArea.offsetHeight;
-		contentArea.style.animation = "fadeIn 0.15s ease-in forwards";
-	}, 150);
+        // Trigger reflow and fade in
+        contentArea.style.animation = "none";
+        contentArea.offsetHeight;
+        contentArea.style.animation = "fadeIn 0.15s ease-in forwards";
+    }, 150);
 }
 
 /**
  * Renders the custom template builder view.
  */
 function renderCustomBuilderView() {
-	currentTemplateId = "custom";
-	const titleElement = document.getElementById("template-title");
-	const formElement = document.getElementById("customization-form");
+    currentTemplateId = "custom";
+    const titleElement = document.getElementById("template-title");
+    const formElement = document.getElementById("customization-form");
 
-	if (titleElement) titleElement.textContent = "My Custom Templates";
+    if (titleElement) titleElement.textContent = "My Custom Templates";
 
-	formElement.innerHTML = "";
+    formElement.innerHTML = "";
 
-	// Header with Export/Import
-	const headerActions = document.createElement("div");
-	headerActions.className = "custom-header-actions";
+    // Header with Export/Import
+    const headerActions = document.createElement("div");
+    headerActions.className = "custom-header-actions";
 
-	const listTitle = document.createElement("h3");
-	listTitle.textContent = "Saved Templates";
-	listTitle.style.color = "var(--text-primary)";
+    const listTitle = document.createElement("h3");
+    listTitle.textContent = "Saved Templates";
+    listTitle.style.color = "var(--text-primary)";
 
-	const headerTools = document.createElement("div");
-	headerTools.className = "header-tools";
+    const headerTools = document.createElement("div");
+    headerTools.className = "header-tools";
 
-	const exportBtn = document.createElement("button");
-	exportBtn.className = "icon-btn";
-	exportBtn.innerHTML =
-		'<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
-	exportBtn.title = "Export Templates (JSON)";
-	exportBtn.onclick = exportCustomTemplates;
+    const exportBtn = document.createElement("button");
+    exportBtn.className = "icon-btn";
+    exportBtn.innerHTML =
+        '<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
+    exportBtn.title = "Export Templates (JSON)";
+    exportBtn.onclick = exportCustomTemplates;
 
-	const importBtn = document.createElement("button");
-	importBtn.className = "icon-btn";
-	importBtn.innerHTML =
-		'<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>';
-	importBtn.title = "Import Templates (JSON)";
-	importBtn.onclick = importCustomTemplates;
+    const importBtn = document.createElement("button");
+    importBtn.className = "icon-btn";
+    importBtn.innerHTML =
+        '<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>';
+    importBtn.title = "Import Templates (JSON)";
+    importBtn.onclick = importCustomTemplates;
 
-	headerTools.appendChild(exportBtn);
-	headerTools.appendChild(importBtn);
-	headerActions.appendChild(listTitle);
-	headerActions.appendChild(headerTools);
+    headerTools.appendChild(exportBtn);
+    headerTools.appendChild(importBtn);
+    headerActions.appendChild(listTitle);
+    headerActions.appendChild(headerTools);
 
-	formElement.appendChild(headerActions);
+    formElement.appendChild(headerActions);
 
-	// Render list of existing custom templates
-	const listContainer = document.createElement("div");
-	listContainer.className = "custom-template-list";
+    // Render list of existing custom templates
+    const listContainer = document.createElement("div");
+    listContainer.className = "custom-template-list";
 
-	const templateKeys = Object.keys(customTemplates);
-	if (templateKeys.length === 0) {
-		listContainer.innerHTML =
-			'<div class="empty-state">No custom templates yet. Create one below!</div>';
-	} else {
-		templateKeys.forEach((key) => {
-			const t = customTemplates[key];
-			const item = document.createElement("div");
-			item.className = "custom-template-item";
+    const templateKeys = Object.keys(customTemplates);
+    if (templateKeys.length === 0) {
+        listContainer.innerHTML =
+            '<div class="empty-state">No custom templates yet. Create one below!</div>';
+    } else {
+        templateKeys.forEach((key) => {
+            const t = customTemplates[key];
+            const item = document.createElement("div");
+            item.className = "custom-template-item";
 
-			const infoDiv = document.createElement("div");
-			infoDiv.className = "template-item-info";
+            const infoDiv = document.createElement("div");
+            infoDiv.className = "template-item-info";
 
-			const nameSpan = document.createElement("span");
-			nameSpan.textContent = t.title;
-			infoDiv.appendChild(nameSpan);
+            const nameSpan = document.createElement("span");
+            nameSpan.textContent = t.title;
+            infoDiv.appendChild(nameSpan);
 
-			if (t.tag) {
-				const tagSpan = document.createElement("span");
-				tagSpan.className = "template-tag";
-				tagSpan.textContent = t.tag;
-				infoDiv.appendChild(tagSpan);
-			}
+            if (t.tag) {
+                const tagSpan = document.createElement("span");
+                tagSpan.className = "template-tag";
+                tagSpan.textContent = t.tag;
+                infoDiv.appendChild(tagSpan);
+            }
 
-			const tools = document.createElement("div");
-			tools.className = "custom-template-item-tools";
+            const tools = document.createElement("div");
+            tools.className = "custom-template-item-tools";
 
-			const copyBtn = document.createElement("button");
-			copyBtn.className = "icon-btn";
-			copyBtn.innerHTML =
-				'<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
-			copyBtn.title = "Copy Template Code";
-			copyBtn.onclick = (e) => {
-				e.stopPropagation();
-				copyToClipboard(t.content, copyBtn);
-			};
+            const copyBtn = document.createElement("button");
+            copyBtn.className = "icon-btn";
+            copyBtn.innerHTML =
+                '<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+            copyBtn.title = "Copy Template Code";
+            copyBtn.onclick = (e) => {
+                e.stopPropagation();
+                copyToClipboard(t.content, copyBtn);
+            };
 
-			const deleteBtn = document.createElement("button");
-			deleteBtn.className = "icon-btn delete";
-			deleteBtn.innerHTML =
-				'<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>';
-			deleteBtn.title = "Delete Template";
-			deleteBtn.onclick = (e) => {
-				e.stopPropagation();
-				if (confirm(`Delete template "${t.title}"?`)) {
-					delete customTemplates[key];
-					saveCustomTemplates();
-					renderCustomBuilderView();
-				}
-			};
+            const deleteBtn = document.createElement("button");
+            deleteBtn.className = "icon-btn delete";
+            deleteBtn.innerHTML =
+                '<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>';
+            deleteBtn.title = "Delete Template";
+            deleteBtn.onclick = (e) => {
+                e.stopPropagation();
+                if (confirm(`Delete template "${t.title}"?`)) {
+                    delete customTemplates[key];
+                    saveCustomTemplates();
+                    renderCustomBuilderView();
+                }
+            };
 
-			tools.appendChild(copyBtn);
-			tools.appendChild(deleteBtn);
+            tools.appendChild(copyBtn);
+            tools.appendChild(deleteBtn);
 
-			item.appendChild(infoDiv);
-			item.appendChild(tools);
+            item.appendChild(infoDiv);
+            item.appendChild(tools);
 
-			item.onclick = () => {
-				// View this template in the preview
-				currentTemplateId = key;
-				document.querySelectorAll(
-					".custom-template-item",
-				).forEach((el) =>
-					el.classList.remove("active"),
-				);
-				item.classList.add("active");
+            item.onclick = () => {
+                // View this template in the preview
+                currentTemplateId = key;
+                document
+                    .querySelectorAll(".custom-template-item")
+                    .forEach((el) => el.classList.remove("active"));
+                item.classList.add("active");
 
-				// Parse for variables and render dynamic form
-				renderDynamicCustomForm(t);
-			};
+                // Parse for variables and render dynamic form
+                renderDynamicCustomForm(t);
+            };
 
-			listContainer.appendChild(item);
-		});
-	}
+            listContainer.appendChild(item);
+        });
+    }
 
-	formElement.appendChild(listContainer);
+    formElement.appendChild(listContainer);
 
-	// Form to add a new custom template
-	const addHeader = document.createElement("h3");
-	addHeader.textContent = "Create New Template";
-	addHeader.style.marginBottom = "1rem";
-	addHeader.style.color = "var(--text-primary)";
-	formElement.appendChild(addHeader);
+    // Render the Auto Prompt Wizard
+    renderAutoPromptWizard(formElement);
 
-	const titleGroup = createFormGroup(
-		"new-title",
-		"Template Title",
-		"text",
-		"e.g., Code Reviewer",
-	);
-	const tagGroup = createFormGroup(
-		"new-tag",
-		"Tag (Optional)",
-		"text",
-		"e.g., Frontend",
-	);
-	const contentGroup = createFormGroup(
-		"new-content",
-		"Prompt Content (Markdown supported)",
-		"textarea",
-		"You are an expert...",
-	);
+    // Form to add a new custom template
+    const addHeader = document.createElement("h3");
+    addHeader.textContent = "Create New Template";
+    addHeader.style.marginBottom = "1rem";
+    addHeader.style.color = "var(--text-primary)";
+    formElement.appendChild(addHeader);
 
-	const saveBtn = document.createElement("button");
-	saveBtn.type = "button";
-	saveBtn.className = "action-btn";
-	saveBtn.textContent = "Save Template";
-	saveBtn.onclick = () => {
-		const titleInput = document.getElementById("new-title");
-		const tagInput = document.getElementById("new-tag");
-		const contentInput = document.getElementById("new-content");
+    const titleGroup = createFormGroup(
+        "new-title",
+        "Template Title",
+        "text",
+        "e.g., Code Reviewer",
+    );
+    const tagGroup = createFormGroup(
+        "new-tag",
+        "Tag (Optional)",
+        "text",
+        "e.g., Frontend",
+    );
+    const contentGroup = createFormGroup(
+        "new-content",
+        "Prompt Content (Markdown supported)",
+        "textarea",
+        "You are an expert...",
+    );
 
-		if (!titleInput.value.trim() || !contentInput.value.trim()) {
-			alert("Please provide both a title and content.");
-			return;
-		}
+    const saveBtn = document.createElement("button");
+    saveBtn.type = "button";
+    saveBtn.className = "action-btn";
+    saveBtn.textContent = "Save Template";
+    saveBtn.onclick = () => {
+        const titleInput = document.getElementById("new-title");
+        const tagInput = document.getElementById("new-tag");
+        const contentInput = document.getElementById("new-content");
 
-		const id = "custom_" + Date.now();
-		customTemplates[id] = {
-			title: titleInput.value.trim(),
-			tag: tagInput.value.trim() || null,
-			content: contentInput.value.trim(),
-		};
-		saveCustomTemplates();
-		renderCustomBuilderView();
-	};
+        if (!titleInput.value.trim() || !contentInput.value.trim()) {
+            alert("Please provide both a title and content.");
+            return;
+        }
 
-	formElement.appendChild(titleGroup);
-	formElement.appendChild(tagGroup);
-	formElement.appendChild(contentGroup);
-	formElement.appendChild(saveBtn);
+        const id = "custom_" + Date.now();
+        customTemplates[id] = {
+            title: titleInput.value.trim(),
+            tag: tagInput.value.trim() || null,
+            content: contentInput.value.trim(),
+        };
+        saveCustomTemplates();
+        renderCustomBuilderView();
+    };
 
-	// Create a container for dynamic inputs if a template is selected
-	const dynamicContainer = document.createElement("div");
-	dynamicContainer.id = "dynamic-variables-container";
-	dynamicContainer.style.marginTop = "2rem";
-	formElement.appendChild(dynamicContainer);
+    formElement.appendChild(titleGroup);
+    formElement.appendChild(tagGroup);
+    formElement.appendChild(contentGroup);
+    formElement.appendChild(saveBtn);
 
-	// clear preview initially on the custom tab
-	const codeElement = document.getElementById("template-code");
-	codeElement.textContent =
-		"Select a custom template above or create a new one to see its content here. Use brackets like [Variable Name] in your content snippet to auto-generate form inputs!";
-	highlightCode(codeElement);
+    // Create a container for dynamic inputs if a template is selected
+    const dynamicContainer = document.createElement("div");
+    dynamicContainer.id = "dynamic-variables-container";
+    dynamicContainer.style.marginTop = "2rem";
+    formElement.appendChild(dynamicContainer);
+
+    // clear preview initially on the custom tab
+    const codeElement = document.getElementById("template-code");
+    codeElement.textContent =
+        "Select a custom template above or create a new one to see its content here. Use brackets like [Variable Name] in your content snippet to auto-generate form inputs!";
+    highlightCode(codeElement);
 }
 
 /**
  * Triggers download of customTemplates as JSON
  */
 function exportCustomTemplates() {
-	if (Object.keys(customTemplates).length === 0) {
-		alert("No custom templates to export.");
-		return;
-	}
-	const dataStr =
-		"data:text/json;charset=utf-8," +
-		encodeURIComponent(JSON.stringify(customTemplates, null, 2));
-	const downloadAnchorNode = document.createElement("a");
-	downloadAnchorNode.setAttribute("href", dataStr);
-	downloadAnchorNode.setAttribute(
-		"download",
-		"prompt_templates_backup.json",
-	);
-	document.body.appendChild(downloadAnchorNode); // required for firefox
-	downloadAnchorNode.click();
-	downloadAnchorNode.remove();
+    if (Object.keys(customTemplates).length === 0) {
+        alert("No custom templates to export.");
+        return;
+    }
+    const dataStr =
+        "data:text/json;charset=utf-8," +
+        encodeURIComponent(JSON.stringify(customTemplates, null, 2));
+    const downloadAnchorNode = document.createElement("a");
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "prompt_templates_backup.json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
 }
 
 /**
  * Prompts user to upload a JSON file to merge into customTemplates
  */
 function importCustomTemplates() {
-	const fileInput = document.createElement("input");
-	fileInput.type = "file";
-	fileInput.accept = ".json";
-	fileInput.onchange = (e) => {
-		const file = e.target.files[0];
-		if (!file) return;
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = ".json";
+    fileInput.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
 
-		const reader = new FileReader();
-		reader.onload = (event) => {
-			try {
-				const imported = JSON.parse(
-					event.target.result,
-				);
-				// Basic validation
-				if (
-					typeof imported !== "object" ||
-					Array.isArray(imported)
-				)
-					throw new Error("Invalid format");
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const imported = JSON.parse(event.target.result);
+                // Basic validation
+                if (typeof imported !== "object" || Array.isArray(imported))
+                    throw new Error("Invalid format");
 
-				// Merge
-				Object.keys(imported).forEach((key) => {
-					// avoid overwriting existing unless user wants to, could be complex, simple merge for now
-					if (!customTemplates[key]) {
-						customTemplates[key] =
-							imported[key];
-					} else {
-						// Create new ID to avoid clash if it exists
-						customTemplates[
-							"custom_imported_" +
-								Date.now() +
-								Math.random()
-						] = imported[key];
-					}
-				});
+                // Merge
+                Object.keys(imported).forEach((key) => {
+                    // avoid overwriting existing unless user wants to, could be complex, simple merge for now
+                    if (!customTemplates[key]) {
+                        customTemplates[key] = imported[key];
+                    } else {
+                        // Create new ID to avoid clash if it exists
+                        customTemplates[
+                            "custom_imported_" + Date.now() + Math.random()
+                        ] = imported[key];
+                    }
+                });
 
-				saveCustomTemplates();
-				renderCustomBuilderView();
-				alert("Templates imported successfully!");
-			} catch (err) {
-				console.error(err);
-				alert(
-					"Failed to parse JSON file. Make sure it's a valid backup.",
-				);
-			}
-		};
-		reader.readAsText(file);
-	};
-	fileInput.click();
+                saveCustomTemplates();
+                renderCustomBuilderView();
+                alert("Templates imported successfully!");
+            } catch (err) {
+                console.error(err);
+                alert(
+                    "Failed to parse JSON file. Make sure it's a valid backup.",
+                );
+            }
+        };
+        reader.readAsText(file);
+    };
+    fileInput.click();
 }
 
 /**
  * Parses a custom template for [Variables] and renders a form for them.
  */
 function renderDynamicCustomForm(template) {
-	const container = document.getElementById(
-		"dynamic-variables-container",
-	);
-	if (!container) return;
+    const container = document.getElementById("dynamic-variables-container");
+    if (!container) return;
 
-	container.innerHTML = "";
+    container.innerHTML = "";
 
-	// Find all unique instances of [Variable Name]
-	const regex = /\[(.*?)\]/g;
-	const matches = [...template.content.matchAll(regex)];
-	const variables = [...new Set(matches.map((m) => m[1]))]; // Remove duplicates
+    // Find all unique instances of [Variable Name]
+    const regex = /\[(.*?)\]/g;
+    const matches = [...template.content.matchAll(regex)];
+    const variables = [...new Set(matches.map((m) => m[1]))]; // Remove duplicates
 
-	if (variables.length > 0) {
-		const header = document.createElement("h3");
-		header.textContent = "Template Variables";
-		header.style.marginBottom = "1rem";
-		header.style.paddingTop = "1rem";
-		header.style.borderTop = "1px solid var(--glass-border)";
-		header.style.color = "var(--text-primary)";
-		container.appendChild(header);
+    if (variables.length > 0) {
+        const header = document.createElement("h3");
+        header.textContent = "Template Variables";
+        header.style.marginBottom = "1rem";
+        header.style.paddingTop = "1rem";
+        header.style.borderTop = "1px solid var(--glass-border)";
+        header.style.color = "var(--text-primary)";
+        container.appendChild(header);
 
-		variables.forEach((v) => {
-			const formGroup = createFormGroup(
-				"dyn_" + v.replace(/\s+/g, ""),
-				v,
-				"text",
-				`Enter value for ${v}`,
-			);
-			const input = formGroup.querySelector("input");
+        variables.forEach((v) => {
+            const formGroup = createFormGroup(
+                "dyn_" + v.replace(/\s+/g, ""),
+                v,
+                "text",
+                `Enter value for ${v}`,
+            );
+            const input = formGroup.querySelector("input");
 
-			// Try load state
-			const savedState = localStorage.getItem(
-				`pth_custom_${currentTemplateId}_state`,
-			);
-			if (savedState) {
-				try {
-					const parsed = JSON.parse(savedState);
-					if (parsed[v]) input.value = parsed[v];
-				} catch (e) {}
-			}
+            // Try load state
+            const savedState = localStorage.getItem(
+                `pth_custom_${currentTemplateId}_state`,
+            );
+            if (savedState) {
+                try {
+                    const parsed = JSON.parse(savedState);
+                    if (parsed[v]) input.value = parsed[v];
+                } catch (e) {}
+            }
 
-			input.addEventListener("input", () => {
-				saveCustomState(variables);
-				updateCustomPreview(template, variables);
-			});
+            input.addEventListener("input", () => {
+                saveCustomState(variables);
+                updateCustomPreview(template, variables);
+            });
 
-			container.appendChild(formGroup);
-		});
-	}
+            container.appendChild(formGroup);
+        });
+    }
 
-	// Initial preview setup
-	updateCustomPreview(template, variables);
+    // Initial preview setup
+    updateCustomPreview(template, variables);
 }
 
 /**
  * Updates the code preview for custom templates by replacing [Variables] with form input
  */
 function updateCustomPreview(template, variables) {
-	let outputText = template.content;
-	const values = {};
+    let outputText = template.content;
+    const values = {};
 
-	variables.forEach((v) => {
-		const input = document.getElementById(
-			"dyn_" + v.replace(/\s+/g, ""),
-		);
-		if (input && input.value.trim() !== "") {
-			// Replace all instances of literally "[v]" globally
-			const replaceRegex = new RegExp(
-				`\\[${v.replace(/[.*+?^$\{\}()|\[\]\\]/g, "\\$&")}\\]`,
-				"g",
-			);
-			outputText = outputText.replace(
-				replaceRegex,
-				input.value,
-			);
-			values[v] = input.value;
-		}
-	});
+    variables.forEach((v) => {
+        const input = document.getElementById("dyn_" + v.replace(/\s+/g, ""));
+        if (input && input.value.trim() !== "") {
+            // Replace all instances of literally "[v]" globally
+            const replaceRegex = new RegExp(
+                `\\[${v.replace(/[.*+?^$\{\}()|\[\]\\]/g, "\\$&")}\\]`,
+                "g",
+            );
+            outputText = outputText.replace(replaceRegex, input.value);
+            values[v] = input.value;
+        }
+    });
 
-	const codeElement = document.getElementById("template-code");
-	codeElement.textContent = outputText;
-	highlightCode(codeElement);
+    const codeElement = document.getElementById("template-code");
+    codeElement.textContent = outputText;
+    highlightCode(codeElement);
 }
 
 /**
  * Saves dynamic input values for a custom template to localStorage
  */
 function saveCustomState(variables) {
-	const values = {};
-	variables.forEach((v) => {
-		const input = document.getElementById(
-			"dyn_" + v.replace(/\s+/g, ""),
-		);
-		if (input) {
-			values[v] = input.value;
-		}
-	});
-	localStorage.setItem(
-		`pth_custom_${currentTemplateId}_state`,
-		JSON.stringify(values),
-	);
+    const values = {};
+    variables.forEach((v) => {
+        const input = document.getElementById("dyn_" + v.replace(/\s+/g, ""));
+        if (input) {
+            values[v] = input.value;
+        }
+    });
+    localStorage.setItem(
+        `pth_custom_${currentTemplateId}_state`,
+        JSON.stringify(values),
+    );
+}
+
+/**
+ * Renders the Auto Prompt Wizard section above the custom template creation form.
+ * @param {HTMLElement} container The container to append the section to.
+ */
+function renderAutoPromptWizard(container) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "auto-prompt-section glass-panel";
+    wrapper.style.marginBottom = "2.5rem";
+    wrapper.style.padding = "1.5rem";
+    wrapper.style.display = "flex";
+    wrapper.style.flexDirection = "column";
+    wrapper.style.alignItems = "center";
+    wrapper.style.textAlign = "center";
+
+    const header = document.createElement("h3");
+    header.textContent = "Auto-Generate Prompt Template";
+    header.style.marginBottom = "0.5rem";
+    header.style.color = "var(--text-primary)";
+    wrapper.appendChild(header);
+
+    const desc = document.createElement("p");
+    desc.textContent =
+        "Answer a few questions to generate a comprehensive template.";
+    desc.style.color = "var(--text-secondary)";
+    desc.style.marginBottom = "1.5rem";
+    desc.style.fontSize = "0.9rem";
+    wrapper.appendChild(desc);
+
+    const startBtn = document.createElement("button");
+    startBtn.type = "button";
+    startBtn.className = "action-btn";
+    startBtn.textContent = "Start Auto Prompt Wizard";
+    startBtn.onclick = startAutoPromptWizard;
+    wrapper.appendChild(startBtn);
+
+    container.appendChild(wrapper);
+}
+
+const wizardQuestions = [
+    {
+        id: "format",
+        label: "Target Output Format",
+        type: "options",
+        multi: false,
+        options: ["Standard Chat Prompt", "Project Agent Rules (.cursorrules)"],
+    },
+    {
+        id: "role",
+        label: "Role of the agent",
+        type: "options",
+        multi: false,
+        options: [
+            "Frontend Eng",
+            "Backend Eng",
+            "Fullstack Eng",
+            "Data Scientist",
+            "DevOps",
+            "UX Designer",
+        ],
+    },
+    {
+        id: "goal",
+        label: "Goal",
+        type: "options_with_custom",
+        multi: false,
+        options: [
+            "Build New Feature",
+            "Refactor Existing Code",
+            "Bug Fix",
+            "Write Unit Tests",
+            "Code Review",
+        ],
+        condition: (answers) =>
+            answers.format !== "Project Agent Rules (.cursorrules)",
+    },
+    {
+        id: "focus",
+        label: "Focus Area",
+        type: "options",
+        multi: true,
+        options: [
+            "Performance",
+            "Security",
+            "UI/UX",
+            "Scalability",
+            "Accessibility",
+            "SEO",
+        ],
+    },
+    {
+        id: "topic",
+        label: "Topic",
+        type: "textarea",
+        placeholder:
+            "What specifically is this prompt concerning? (e.g., React Server Components natively fetching data)",
+        condition: (answers) =>
+            answers.format !== "Project Agent Rules (.cursorrules)",
+    },
+    {
+        id: "context",
+        label: "Context/Specific Question",
+        type: "textarea",
+        placeholder: "Any specific constraints or questions?",
+        condition: (answers) =>
+            answers.format !== "Project Agent Rules (.cursorrules)",
+    },
+    {
+        id: "tech_frontend",
+        label: "Tech Stack - Front-end",
+        type: "options",
+        multi: true,
+        options: [
+            "React",
+            "Vue",
+            "Angular",
+            "Svelte",
+            "Vanilla JS",
+            "Tailwind CSS",
+            "CSS Modules",
+        ],
+    },
+    {
+        id: "tech_backend",
+        label: "Tech Stack - Back-end",
+        type: "options",
+        multi: true,
+        options: [
+            "Node.js",
+            "Python/Django",
+            "Python/FastAPI",
+            "Go",
+            "Rust",
+            "PostgreSQL",
+            "MongoDB",
+        ],
+    },
+    {
+        id: "tech_deploy",
+        label: "Tech Stack - Deployment",
+        type: "options",
+        multi: true,
+        options: ["AWS", "Vercel", "Docker", "Kubernetes", "GCP", "Azure"],
+    },
+    {
+        id: "commands",
+        label: "Common Commands",
+        type: "textarea",
+        placeholder:
+            "Provide relevant npm/yarn scripts for building, testing, linting... (e.g., npm run build, npm test)",
+        condition: (answers) =>
+            answers.format === "Project Agent Rules (.cursorrules)",
+    },
+    {
+        id: "boundaries",
+        label: "Boundaries & Restrictions",
+        type: "textarea",
+        placeholder:
+            "What should the agent NEVER do? (e.g., Never modify configuration files, never commit secrets...)",
+        condition: (answers) =>
+            answers.format === "Project Agent Rules (.cursorrules)",
+    },
+];
+
+let currentWizardStep = 0;
+let wizardAnswers = {};
+
+function startAutoPromptWizard() {
+    currentWizardStep = 0;
+    wizardAnswers = {};
+
+    // Initialize empty arrays for multi-selects
+    wizardQuestions.forEach((q) => {
+        if (q.multi) wizardAnswers[q.id] = [];
+    });
+
+    const defaultOutput = document.getElementById("default-output-content");
+    const wizardOutput = document.getElementById("wizard-output-content");
+
+    if (defaultOutput) defaultOutput.style.display = "none";
+    if (wizardOutput) {
+        wizardOutput.style.display = "flex";
+        wizardOutput.innerHTML = ""; // Clear existing
+        renderWizardStep();
+    }
+}
+
+// Helper functions to find next/prev valid step index
+function getNextStepIndex(currentIndex) {
+    let nextIndex = currentIndex + 1;
+    while (nextIndex < wizardQuestions.length) {
+        const step = wizardQuestions[nextIndex];
+        if (!step.condition || step.condition(wizardAnswers)) return nextIndex;
+        nextIndex++;
+    }
+    return nextIndex; // Might be >= length if at end
+}
+
+function getPrevStepIndex(currentIndex) {
+    let prevIndex = currentIndex - 1;
+    while (prevIndex >= 0) {
+        const step = wizardQuestions[prevIndex];
+        if (!step.condition || step.condition(wizardAnswers)) return prevIndex;
+        prevIndex--;
+    }
+    return prevIndex;
+}
+
+function renderWizardStep() {
+    const wizardOutput = document.getElementById("wizard-output-content");
+    if (!wizardOutput) return;
+
+    wizardOutput.innerHTML = "";
+
+    if (currentWizardStep >= wizardQuestions.length) {
+        finishWizard();
+        return;
+    }
+
+    // Fade in effect
+    wizardOutput.style.animation = "none";
+    wizardOutput.offsetHeight;
+    wizardOutput.style.animation = "fadeIn 0.3s ease-in forwards";
+
+    const stepData = wizardQuestions[currentWizardStep];
+
+    const header = document.createElement("div");
+    header.style.marginBottom = "2rem";
+
+    // Calculate total visible steps based on current answers to show progress accurately
+    const visibleStepsCount = wizardQuestions.filter(
+        (q) => !q.condition || q.condition(wizardAnswers),
+    ).length;
+    const currentVisibleIndex = wizardQuestions
+        .slice(0, currentWizardStep + 1)
+        .filter((q) => !q.condition || q.condition(wizardAnswers)).length;
+
+    const stepCounter = document.createElement("h3");
+    stepCounter.textContent = `Step ${currentVisibleIndex} of ${visibleStepsCount}`;
+    stepCounter.style.color = "var(--accent-color)";
+    stepCounter.style.fontSize = "1.5rem";
+    stepCounter.style.marginBottom = "0.5rem";
+    header.appendChild(stepCounter);
+
+    const questionContainer = document.createElement("div");
+    questionContainer.className = "wizard-question-container";
+    questionContainer.style.flexGrow = "1";
+
+    const label = document.createElement("label");
+    label.textContent = stepData.label;
+    if (stepData.multi) label.textContent += " (Select multiple)";
+    label.style.display = "block";
+    label.style.fontSize = "1.2rem";
+    label.style.marginBottom = "1rem";
+    label.style.fontWeight = "600";
+    questionContainer.appendChild(label);
+
+    let inputRef = null; // Used to grab text values for textareas on next
+
+    if (
+        stepData.type === "options" ||
+        stepData.type === "options_with_custom"
+    ) {
+        const optionsGrid = document.createElement("div");
+        optionsGrid.className = "wizard-options-grid";
+
+        stepData.options.forEach((opt) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "wizard-option-btn";
+            btn.textContent = opt;
+
+            // Check if initially selected
+            if (stepData.multi) {
+                if (
+                    wizardAnswers[stepData.id] &&
+                    wizardAnswers[stepData.id].includes(opt)
+                ) {
+                    btn.classList.add("active");
+                }
+            } else {
+                if (wizardAnswers[stepData.id] === opt) {
+                    btn.classList.add("active");
+                }
+            }
+
+            btn.onclick = () => {
+                if (stepData.multi) {
+                    // Toggle array membership
+                    btn.classList.toggle("active");
+                    let currentArr = wizardAnswers[stepData.id] || [];
+                    if (btn.classList.contains("active")) {
+                        if (!currentArr.includes(opt)) currentArr.push(opt);
+                    } else {
+                        currentArr = currentArr.filter((i) => i !== opt);
+                    }
+                    wizardAnswers[stepData.id] = currentArr;
+                } else {
+                    // Single select mode
+                    Array.from(
+                        optionsGrid.querySelectorAll(".wizard-option-btn"),
+                    ).forEach((b) => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    wizardAnswers[stepData.id] = opt;
+
+                    // Clear custom input if it exists
+                    if (
+                        inputRef &&
+                        inputRef.tagName.toLowerCase() === "textarea"
+                    ) {
+                        inputRef.value = "";
+                    }
+                }
+            };
+            optionsGrid.appendChild(btn);
+        });
+
+        questionContainer.appendChild(optionsGrid);
+    }
+
+    if (
+        stepData.type === "textarea" ||
+        stepData.type === "options_with_custom"
+    ) {
+        if (stepData.type === "options_with_custom") {
+            const orLabel = document.createElement("div");
+            orLabel.textContent = "Or describe custom:";
+            orLabel.style.margin = "1rem 0 0.5rem 0";
+            orLabel.style.color = "var(--text-secondary)";
+            orLabel.style.fontSize = "0.9rem";
+            questionContainer.appendChild(orLabel);
+        }
+
+        inputRef = document.createElement("textarea");
+        inputRef.rows = 4;
+        inputRef.className = "form-control";
+        inputRef.placeholder = stepData.placeholder || "Other...";
+        inputRef.style.fontSize = "1.1rem";
+        inputRef.style.padding = "1rem";
+
+        if (stepData.type === "textarea" && wizardAnswers[stepData.id]) {
+            inputRef.value = wizardAnswers[stepData.id];
+        }
+
+        // Clear pre-defined selections if user starts typing custom
+        if (stepData.type === "options_with_custom") {
+            inputRef.addEventListener("input", () => {
+                if (inputRef.value.trim() !== "") {
+                    Array.from(
+                        questionContainer.querySelectorAll(
+                            ".wizard-option-btn",
+                        ),
+                    ).forEach((b) => b.classList.remove("active"));
+                    if (!stepData.multi) wizardAnswers[stepData.id] = null; // Clear pre-defined single selection
+                }
+            });
+        }
+
+        questionContainer.appendChild(inputRef);
+        setTimeout(() => inputRef.focus(), 100);
+    }
+
+    wizardOutput.appendChild(questionContainer);
+
+    const actions = document.createElement("div");
+    actions.style.display = "flex";
+    actions.style.justifyContent = "space-between";
+    actions.style.marginTop = "2rem";
+
+    const cancelBtn = document.createElement("button");
+    cancelBtn.className = "action-btn secondary";
+    cancelBtn.textContent = "Cancel";
+    cancelBtn.onclick = closeWizard;
+    actions.appendChild(cancelBtn);
+
+    const rightActions = document.createElement("div");
+    rightActions.style.display = "flex";
+    rightActions.style.gap = "1rem";
+
+    if (currentWizardStep > 0) {
+        const prevBtn = document.createElement("button");
+        prevBtn.className = "action-btn secondary";
+        prevBtn.textContent = "Previous";
+        prevBtn.onclick = () => {
+            if (inputRef && inputRef.value.trim() !== "") {
+                wizardAnswers[stepData.id] = inputRef.value.trim();
+            }
+            currentWizardStep = getPrevStepIndex(currentWizardStep);
+            renderWizardStep();
+        };
+        rightActions.appendChild(prevBtn);
+    }
+
+    const collectAnswer = () => {
+        if (inputRef && inputRef.value.trim() !== "") {
+            wizardAnswers[stepData.id] = inputRef.value.trim();
+        } else if (
+            stepData.type === "options" &&
+            stepData.multi &&
+            !wizardAnswers[stepData.id]
+        ) {
+            wizardAnswers[stepData.id] = [];
+        }
+    };
+
+    const nextBtn = document.createElement("button");
+    nextBtn.className = "action-btn";
+
+    const nextIdx = getNextStepIndex(currentWizardStep);
+    if (nextIdx >= wizardQuestions.length) {
+        nextBtn.textContent = "Generate Template";
+        nextBtn.onclick = () => {
+            collectAnswer();
+            finishWizard();
+        };
+    } else {
+        nextBtn.textContent = "Next Question";
+        nextBtn.onclick = () => {
+            collectAnswer();
+            currentWizardStep = nextIdx;
+            renderWizardStep();
+        };
+    }
+    rightActions.appendChild(nextBtn);
+
+    actions.appendChild(rightActions);
+    wizardOutput.appendChild(actions);
+
+    // Focus input
+}
+
+function closeWizard() {
+    const defaultOutput = document.getElementById("default-output-content");
+    const wizardOutput = document.getElementById("wizard-output-content");
+    if (wizardOutput) wizardOutput.style.display = "none";
+    if (defaultOutput) {
+        defaultOutput.style.animation = "fadeIn 0.3s ease-in forwards";
+        defaultOutput.style.display = "block";
+    }
+}
+
+function finishWizard() {
+    const promptContent = generateAutoPromptText(wizardAnswers);
+
+    const contentInput = document.getElementById("new-content");
+    if (contentInput) {
+        contentInput.value = promptContent;
+        const titleInput = document.getElementById("new-title");
+
+        let roleStr = "Custom";
+        if (wizardAnswers.role && !Array.isArray(wizardAnswers.role)) {
+            roleStr = wizardAnswers.role;
+        } else if (
+            Array.isArray(wizardAnswers.role) &&
+            wizardAnswers.role.length > 0
+        ) {
+            roleStr = wizardAnswers.role[0];
+        }
+
+        if (titleInput && !titleInput.value) {
+            titleInput.value = `${roleStr} Agent`.trim();
+        }
+    }
+
+    closeWizard();
+
+    // Scroll to the template generation block
+    const addHeader = Array.from(document.querySelectorAll("h3")).find(
+        (h) => h.textContent === "Create New Template",
+    );
+    if (addHeader)
+        addHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+/**
+ * Generates the markdown prompt instruction text based on wizard selections.
+ * @param {Object} answers The choices made by the user.
+ * @returns {string} The formatted prompt string.
+ */
+function generateAutoPromptText(answers) {
+    let roleStr = "Software Engineer and AI Pair Programmer";
+    if (answers.role && !Array.isArray(answers.role)) {
+        roleStr = answers.role;
+    }
+
+    const hasFront =
+        Array.isArray(answers.tech_frontend) &&
+        answers.tech_frontend.length > 0;
+    const hasBack =
+        Array.isArray(answers.tech_backend) && answers.tech_backend.length > 0;
+    const hasDeploy =
+        Array.isArray(answers.tech_deploy) && answers.tech_deploy.length > 0;
+    const hasFocus = Array.isArray(answers.focus) && answers.focus.length > 0;
+
+    // AGENT RULES MODE (.cursorrules / agents.md)
+    if (answers.format === "Project Agent Rules (.cursorrules)") {
+        let text = `---
+name: ${roleStr} Agent
+description: Agent instructions and standards
+---\n\n`;
+
+        text += `## Persona\n`;
+        text += `- You are an expert ${roleStr} and technical assistant for this project.\n`;
+        if (hasFocus) {
+            text += `- You specialize in: ${answers.focus.join(", ")}.\n`;
+        }
+        text += `- You ensure all proposed changes are DRY, SOLID, and secure by default.\n\n`;
+
+        text += `## Project Knowledge\n`;
+        text += `**Tech Stack & Environment:**\n`;
+        if (hasFront)
+            text += `- Front-end: ${answers.tech_frontend.join(", ")}\n`;
+        if (hasBack) text += `- Back-end: ${answers.tech_backend.join(", ")}\n`;
+        if (hasDeploy)
+            text += `- Deployment/Infra: ${answers.tech_deploy.join(", ")}\n`;
+        if (!hasFront && !hasBack && !hasDeploy)
+            text += `- (General configuration)\n`;
+        text += `\n`;
+
+        if (answers.commands) {
+            text += `## Commands You Can Use\n`;
+            text += `${answers.commands}\n\n`;
+        }
+
+        text += `## Standards & Best Practices\n`;
+        text += `- Think step-by-step about your approach before outputting any code.\n`;
+        text += `- Provide a clear and maintainable architecture tailored to the specified tech stack.\n`;
+        text += `- Always prioritize reliability and testability in your solutions.\n\n`;
+
+        text += `## Boundaries\n`;
+        if (answers.boundaries) {
+            text += `${answers.boundaries}\n`;
+        } else {
+            text += `- ✅ **Always do:** Check types and run linters before confirming changes.\n`;
+            text += `- ⚠️ **Ask first:** Before adding new heavy dependencies.\n`;
+            text += `- 🚫 **Never do:** Output sensitive secrets, API keys, or delete production databases.\n`;
+        }
+
+        return text;
+    }
+
+    // STANDARD CHAT PROMPT MODE
+    let text = `You are an expert ${roleStr}.\n\n`;
+
+    if (answers.goal) {
+        text += `**Goal:**\n${answers.goal}\n\n`;
+    }
+
+    if (answers.topic || hasFocus) {
+        text += `**Topic & Focus:**\n`;
+        if (answers.topic) text += `- Topic: ${answers.topic}\n`;
+        if (hasFocus) text += `- Focus Area: ${answers.focus.join(", ")}\n`;
+        text += `\n`;
+    }
+
+    if (hasFront || hasBack || hasDeploy) {
+        text += `**Tech Stack & Environment:**\n`;
+        if (hasFront)
+            text += `- Front-end: ${answers.tech_frontend.join(", ")}\n`;
+        if (hasBack) text += `- Back-end: ${answers.tech_backend.join(", ")}\n`;
+        if (hasDeploy)
+            text += `- Deployment/Infra: ${answers.tech_deploy.join(", ")}\n`;
+        text += `\n`;
+    }
+
+    if (answers.context) {
+        text += `**Context / Specific Requirements:**\n${answers.context}\n\n`;
+    }
+
+    text += `**Instructions:**\n`;
+    text += `1. Think step-by-step about your approach before outputting any code.\n`;
+    text += `2. Ensure all proposed changes are DRY, SOLID, and secure by default.\n`;
+    text += `3. Provide a clear and maintainable architecture tailored to the specified tech stack.\n`;
+
+    return text;
 }
 
 /**
  * Helper to create form DOM elements
  */
 function createFormGroup(id, labelText, type, placeholder) {
-	const formGroup = document.createElement("div");
-	formGroup.className = "form-group";
+    const formGroup = document.createElement("div");
+    formGroup.className = "form-group";
 
-	const label = document.createElement("label");
-	label.htmlFor = id;
-	label.textContent = labelText;
-	formGroup.appendChild(label);
+    const label = document.createElement("label");
+    label.htmlFor = id;
+    label.textContent = labelText;
+    formGroup.appendChild(label);
 
-	let input;
-	if (type === "textarea") {
-		input = document.createElement("textarea");
-		input.rows = 6;
-	} else {
-		input = document.createElement("input");
-		input.type = type;
-	}
+    let input;
+    if (type === "textarea") {
+        input = document.createElement("textarea");
+        input.rows = 6;
+    } else {
+        input = document.createElement("input");
+        input.type = type;
+    }
 
-	input.id = id;
-	input.className = "form-control";
-	input.placeholder = placeholder;
+    input.id = id;
+    input.className = "form-control";
+    input.placeholder = placeholder;
 
-	formGroup.appendChild(input);
-	return formGroup;
+    formGroup.appendChild(input);
+    return formGroup;
 }
 
 /**
@@ -832,241 +1376,221 @@ function createFormGroup(id, labelText, type, placeholder) {
  * @param {string} templateId - The key of the template to display.
  */
 function updateTemplateView(templateId) {
-	currentTemplateId = templateId;
-	const titleElement = document.getElementById("template-title");
-	const formElement = document.getElementById("customization-form");
-	const templateData = defaultTemplates[templateId];
+    currentTemplateId = templateId;
+    const titleElement = document.getElementById("template-title");
+    const formElement = document.getElementById("customization-form");
+    const templateData = defaultTemplates[templateId];
 
-	if (!templateData) return;
+    if (!templateData) return;
 
-	if (titleElement) {
-		titleElement.textContent =
-			templateData.title + " Prompt Template";
-	}
+    if (titleElement) {
+        titleElement.textContent = templateData.title + " Prompt Template";
+    }
 
-	if (formElement) {
-		formElement.innerHTML = "";
-		templateData.fields.forEach((field) => {
-			const formGroup = document.createElement("div");
-			formGroup.className = "form-group";
+    if (formElement) {
+        formElement.innerHTML = "";
+        templateData.fields.forEach((field) => {
+            const formGroup = document.createElement("div");
+            formGroup.className = "form-group";
 
-			const label = document.createElement("label");
-			label.htmlFor = field.id;
-			label.textContent = field.label;
-			formGroup.appendChild(label);
+            const label = document.createElement("label");
+            label.htmlFor = field.id;
+            label.textContent = field.label;
+            formGroup.appendChild(label);
 
-			let input;
-			if (field.type === "textarea") {
-				input = document.createElement("textarea");
-				input.rows = 4;
-			} else {
-				input = document.createElement("input");
-				input.type = field.type;
-			}
+            let input;
+            if (field.type === "textarea") {
+                input = document.createElement("textarea");
+                input.rows = 4;
+            } else {
+                input = document.createElement("input");
+                input.type = field.type;
+            }
 
-			input.id = field.id;
-			input.name = field.id;
-			input.className = "form-control";
-			if (field.placeholder)
-				input.placeholder = field.placeholder;
+            input.id = field.id;
+            input.name = field.id;
+            input.className = "form-control";
+            if (field.placeholder) input.placeholder = field.placeholder;
 
-			input.addEventListener("input", () => {
-				saveState(templateId);
-				updateCodePreview();
-			});
+            input.addEventListener("input", () => {
+                saveState(templateId);
+                updateCodePreview();
+            });
 
-			formGroup.appendChild(input);
+            formGroup.appendChild(input);
 
-			// Add suggestion chips if applicable
-			if (field.suggestions && field.suggestions.length > 0) {
-				const suggestionsContainer =
-					document.createElement("div");
-				suggestionsContainer.className =
-					"suggestions-container";
+            // Add suggestion chips if applicable
+            if (field.suggestions && field.suggestions.length > 0) {
+                const suggestionsContainer = document.createElement("div");
+                suggestionsContainer.className = "suggestions-container";
 
-				field.suggestions.forEach((suggestion) => {
-					const chip =
-						document.createElement(
-							"button",
-						);
-					chip.type = "button";
-					chip.className = "suggestion-chip";
-					chip.textContent = suggestion;
-					chip.addEventListener("click", () => {
-						const currentValue =
-							input.value.trim();
-						if (currentValue === "") {
-							input.value =
-								suggestion;
-						} else {
-							// Smart append if already has text
-							const separator =
-								field.type ===
-								"textarea"
-									? "\n"
-									: ", ";
-							input.value =
-								currentValue +
-								separator +
-								suggestion;
-						}
+                field.suggestions.forEach((suggestion) => {
+                    const chip = document.createElement("button");
+                    chip.type = "button";
+                    chip.className = "suggestion-chip";
+                    chip.textContent = suggestion;
+                    chip.addEventListener("click", () => {
+                        const currentValue = input.value.trim();
+                        if (currentValue === "") {
+                            input.value = suggestion;
+                        } else {
+                            // Smart append if already has text
+                            const separator =
+                                field.type === "textarea" ? "\n" : ", ";
+                            input.value = currentValue + separator + suggestion;
+                        }
 
-						saveState(templateId);
-						updateCodePreview();
-					});
-					suggestionsContainer.appendChild(chip);
-				});
+                        saveState(templateId);
+                        updateCodePreview();
+                    });
+                    suggestionsContainer.appendChild(chip);
+                });
 
-				formGroup.appendChild(suggestionsContainer);
-			}
+                formGroup.appendChild(suggestionsContainer);
+            }
 
-			formElement.appendChild(formGroup);
-		});
+            formElement.appendChild(formGroup);
+        });
 
-		// Restore state after fields are built
-		loadState(templateId);
-	}
+        // Restore state after fields are built
+        loadState(templateId);
+    }
 
-	updateCodePreview();
+    updateCodePreview();
 }
 
 /**
  * Saves the current form values for the given template to localStorage.
  */
 function saveState(templateId) {
-	const templateData = defaultTemplates[templateId];
-	if (!templateData) return;
+    const templateData = defaultTemplates[templateId];
+    if (!templateData) return;
 
-	const values = {};
-	templateData.fields.forEach((field) => {
-		const input = document.getElementById(field.id);
-		if (input) {
-			values[field.id] = input.value;
-		}
-	});
+    const values = {};
+    templateData.fields.forEach((field) => {
+        const input = document.getElementById(field.id);
+        if (input) {
+            values[field.id] = input.value;
+        }
+    });
 
-	localStorage.setItem(`pth_${templateId}_state`, JSON.stringify(values));
+    localStorage.setItem(`pth_${templateId}_state`, JSON.stringify(values));
 }
 
 /**
  * Loads the saved form values for the given template from localStorage.
  */
 function loadState(templateId) {
-	const savedState = localStorage.getItem(`pth_${templateId}_state`);
-	if (!savedState) return;
+    const savedState = localStorage.getItem(`pth_${templateId}_state`);
+    if (!savedState) return;
 
-	try {
-		const values = JSON.parse(savedState);
-		const templateData = defaultTemplates[templateId];
+    try {
+        const values = JSON.parse(savedState);
+        const templateData = defaultTemplates[templateId];
 
-		templateData.fields.forEach((field) => {
-			if (values[field.id] !== undefined) {
-				const input = document.getElementById(field.id);
-				if (input) {
-					input.value = values[field.id];
-				}
-			}
-		});
-	} catch (e) {
-		console.error("Failed to parse saved state", e);
-	}
+        templateData.fields.forEach((field) => {
+            if (values[field.id] !== undefined) {
+                const input = document.getElementById(field.id);
+                if (input) {
+                    input.value = values[field.id];
+                }
+            }
+        });
+    } catch (e) {
+        console.error("Failed to parse saved state", e);
+    }
 }
 
 /**
  * Reads form values and updates the code preview based on current template generator.
  */
 function updateCodePreview() {
-	if (isCustomTab) return; // Managed directly in the custom tab logic
+    if (isCustomTab) return; // Managed directly in the custom tab logic
 
-	const templateData = defaultTemplates[currentTemplateId];
-	if (!templateData) return;
+    const templateData = defaultTemplates[currentTemplateId];
+    if (!templateData) return;
 
-	const values = {};
-	templateData.fields.forEach((field) => {
-		const input = document.getElementById(field.id);
-		if (input) {
-			values[field.id] = input.value.trim();
-		}
-	});
+    const values = {};
+    templateData.fields.forEach((field) => {
+        const input = document.getElementById(field.id);
+        if (input) {
+            values[field.id] = input.value.trim();
+        }
+    });
 
-	const codeElement = document.getElementById("template-code");
-	if (codeElement) {
-		codeElement.textContent = templateData.generate(values);
-		highlightCode(codeElement);
-	}
+    const codeElement = document.getElementById("template-code");
+    if (codeElement) {
+        codeElement.textContent = templateData.generate(values);
+        highlightCode(codeElement);
+    }
 }
 
 /**
  * Triggers Prism.js to highlight the code block.
  */
 function highlightCode(element) {
-	if (window.Prism) {
-		Prism.highlightElement(element);
-	}
+    if (window.Prism) {
+        Prism.highlightElement(element);
+    }
 }
 
 /**
  * Handles copying the current template content to the clipboard and saving to history.
  */
 function handleCopy() {
-	const codeElement = document.getElementById("template-code");
-	const copyBtn = document.getElementById("copy-btn");
-	if (codeElement && copyBtn) {
-		const content = codeElement.textContent;
-		copyToClipboard(content, copyBtn);
+    const codeElement = document.getElementById("template-code");
+    const copyBtn = document.getElementById("copy-btn");
+    if (codeElement && copyBtn) {
+        const content = codeElement.textContent;
+        copyToClipboard(content, copyBtn);
 
-		// Save to history
-		const title =
-			document.getElementById("template-title").textContent;
-		saveToHistory(title, content);
-	}
+        // Save to history
+        const title = document.getElementById("template-title").textContent;
+        saveToHistory(title, content);
+    }
 }
 
 /**
  * Reusable clipboard copy function with visual feedback.
  */
 async function copyToClipboard(text, buttonElement) {
-	const iconCopy =
-		'<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
-	const iconCheck =
-		'<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+    const iconCopy =
+        '<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+    const iconCheck =
+        '<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
-	const btnSpan = buttonElement.querySelector("span") || buttonElement; // Handle icon-only buttons
-	const originalText = btnSpan.innerHTML;
+    const btnSpan = buttonElement.querySelector("span") || buttonElement; // Handle icon-only buttons
+    const originalText = btnSpan.innerHTML;
 
-	try {
-		await navigator.clipboard.writeText(text);
+    try {
+        await navigator.clipboard.writeText(text);
 
-		if (buttonElement.id === "copy-btn") {
-			btnSpan.textContent = "Copied!";
-			buttonElement.style.background =
-				"rgba(35, 134, 54, 0.3)";
-			buttonElement.style.borderColor =
-				"rgba(35, 134, 54, 0.6)";
-		} else {
-			buttonElement.innerHTML = iconCheck;
-			buttonElement.style.color = "var(--blob-1)"; // green success
-		}
+        if (buttonElement.id === "copy-btn") {
+            btnSpan.textContent = "Copied!";
+            buttonElement.style.background = "rgba(35, 134, 54, 0.3)";
+            buttonElement.style.borderColor = "rgba(35, 134, 54, 0.6)";
+        } else {
+            buttonElement.innerHTML = iconCheck;
+            buttonElement.style.color = "var(--blob-1)"; // green success
+        }
 
-		setTimeout(() => {
-			if (buttonElement.id === "copy-btn") {
-				btnSpan.textContent = "Copy";
-				buttonElement.style.background = "";
-				buttonElement.style.borderColor = "";
-			} else {
-				buttonElement.innerHTML = iconCopy;
-				buttonElement.style.color = "";
-			}
-		}, 2000);
-	} catch (err) {
-		console.error("Failed to copy text: ", err);
-		if (buttonElement.id === "copy-btn")
-			btnSpan.textContent = "Failed";
-		setTimeout(() => {
-			if (buttonElement.id === "copy-btn")
-				btnSpan.textContent = "Copy";
-		}, 2000);
-	}
+        setTimeout(() => {
+            if (buttonElement.id === "copy-btn") {
+                btnSpan.textContent = "Copy";
+                buttonElement.style.background = "";
+                buttonElement.style.borderColor = "";
+            } else {
+                buttonElement.innerHTML = iconCopy;
+                buttonElement.style.color = "";
+            }
+        }, 2000);
+    } catch (err) {
+        console.error("Failed to copy text: ", err);
+        if (buttonElement.id === "copy-btn") btnSpan.textContent = "Failed";
+        setTimeout(() => {
+            if (buttonElement.id === "copy-btn") btnSpan.textContent = "Copy";
+        }, 2000);
+    }
 }
 
 // Initialize when DOM is ready

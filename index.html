@@ -106,39 +106,46 @@
                 </div>
 
                 <!-- Template Output Panel -->
-                <div class="glass-panel output-panel">
-                    <div class="panel-header">
-                        <h2 id="template-title">Code Agent Plan</h2>
-                        <div class="output-actions">
-                            <div class="dropdown-wrapper">
-                                <button id="chain-btn" class="action-btn secondary"
-                                    title="Send output to another template">
-                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
-                                        stroke-width="2" fill="none">
-                                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                    </svg>
-                                    <span>Send to...</span>
-                                </button>
-                                <div id="chain-dropdown" class="dropdown-menu hidden">
-                                    <!-- Populated via JS -->
+                <div class="glass-panel output-panel" style="position: relative;">
+                    <div id="default-output-content">
+                        <div class="panel-header">
+                            <h2 id="template-title">Code Agent Plan</h2>
+                            <div class="output-actions">
+                                <!--                                 
+                                <div class="dropdown-wrapper">
+                                    <button id="chain-btn" class="action-btn secondary"
+                                        title="Send output to another template">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                                            stroke-width="2" fill="none">
+                                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                        </svg>
+                                        <span>Send to...</span>
+                                    </button>
+                                    <div id="chain-dropdown" class="dropdown-menu hidden">
+                                        
+                                    </div>
                                 </div>
+                                -->
+                                <button id="copy-btn" class="copy-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" class="copy-icon">
+                                        <path
+                                            d="M8 5H6C4.89543 5 4 5.89543 4 7V19C4 20.1046 4.89543 21 6 21H16C17.1046 21 18 20.1046 18 19V17M8 5C8 6.10457 8.89543 7 10 7H12C13.1046 7 14 6.10457 14 5M8 5C8 3.89543 8.89543 3 10 3H12C13.1046 3 14 3.89543 14 5M14 5H16C17.1046 5 18 5.89543 18 7V13"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M16 13L22 13M22 13L19 10M22 13L19 16" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span>Copy</span>
+                                </button>
                             </div>
-                            <button id="copy-btn" class="copy-btn">
-                                <svg viewBox="0 0 24 24" fill="none" class="copy-icon">
-                                    <path
-                                        d="M8 5H6C4.89543 5 4 5.89543 4 7V19C4 20.1046 4.89543 21 6 21H16C17.1046 21 18 20.1046 18 19V17M8 5C8 6.10457 8.89543 7 10 7H12C13.1046 7 14 6.10457 14 5M8 5C8 3.89543 8.89543 3 10 3H12C13.1046 3 14 3.89543 14 5M14 5H16C17.1046 5 18 5.89543 18 7V13"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path d="M16 13L22 13M22 13L19 10M22 13L19 16" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <span>Copy</span>
-                            </button>
+                            <div class="template-content" aria-live="polite">
+                                <pre><code id="template-code" class="language-markdown">...</code></pre>
+                            </div>
                         </div>
-                        <div class="template-content" aria-live="polite">
-                            <pre><code id="template-code" class="language-markdown">...</code></pre>
-                        </div>
+                    </div>
+                    <div id="wizard-output-content" style="display: none; flex-direction: column; height: 100%;">
+                        <!-- Dynamic wizard injected here -->
                     </div>
                 </div>
         </section>

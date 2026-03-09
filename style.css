@@ -270,8 +270,9 @@ header p {
 
 .panel-header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--glass-border);
@@ -672,6 +673,75 @@ textarea.form-control {
     border-color: var(--accent-color);
 }
 
+/* Auto Prompt & Select Custom Styles */
+select.form-control.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e6edf3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+[data-theme="light"] select.form-control.custom-select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f2937' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+[data-theme="cyberpunk"] select.form-control.custom-select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+select.form-control option {
+    background: var(--bg-color);
+    color: var(--text-primary);
+}
+
+select.form-control option:disabled {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.auto-prompt-section {
+    background: rgba(88, 166, 255, 0.05);
+    /* Slight tint of accent color */
+    border-color: rgba(88, 166, 255, 0.2);
+}
+
+/* Wizard Options Grid and Buttons */
+.wizard-options-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.wizard-option-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.wizard-option-btn:hover {
+    background: rgba(88, 166, 255, 0.1);
+    border-color: rgba(88, 166, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.wizard-option-btn.active {
+    background: rgba(88, 166, 255, 0.25);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.15);
+    font-weight: 500;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
@@ -687,5 +757,13 @@ textarea.form-control {
 
     .glass-panel {
         padding: 1.5rem;
+    }
+
+    .auto-prompt-section>div {
+        grid-template-columns: 1fr !important;
+    }
+
+    .wizard-options-grid {
+        flex-direction: column;
     }
 }
