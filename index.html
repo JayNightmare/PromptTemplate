@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Template Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Prism.js CSS for Syntax Highlighting (Okaidia theme fits dark mode well) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <div class="header-titles">
+                <h1>Prompt Template Hub</h1>
+                <p>Centralized AI Agent Prompts for consistent, high-quality results</p>
+            </div>
+            <div class="header-actions">
+                <button id="theme-btn" class="icon-btn header-btn" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button id="history-toggle-btn" class="icon-btn header-btn" title="View History">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <section class="selection-grid">
+            <button class="nav-btn active" data-target="code" id="btn-code">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </span>
+                Code Agent
+            </button>
+            <button class="nav-btn" data-target="research" id="btn-research">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </span>
+                Research Agent
+            </button>
+            <button class="nav-btn" data-target="design" id="btn-design">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                    </svg>
+                </span>
+                Design Agent
+            </button>
+            <button class="nav-btn" data-target="custom" id="btn-custom" style="border-style: dashed;">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                    </svg>
+                </span>
+                Custom Templates
+            </button>
+        </section>
+
+        <section class="content-area">
+            <div class="content-grid">
+                <!-- Customization Panel -->
+                <div class="glass-panel customization-panel">
+                    <div class="panel-header">
+                        <h2>Customize</h2>
+                    </div>
+                    <form id="customization-form" class="dynamic-form">
+                        <!-- Dynamic fields injected via JS -->
+                    </form>
+                </div>
+
+                <!-- Template Output Panel -->
+                <div class="glass-panel output-panel">
+                    <div class="panel-header">
+                        <h2 id="template-title">Code Agent Plan</h2>
+                        <div class="output-actions">
+                            <div class="dropdown-wrapper">
+                                <button id="chain-btn" class="action-btn secondary"
+                                    title="Send output to another template">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor"
+                                        stroke-width="2" fill="none">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                    <span>Send to...</span>
+                                </button>
+                                <div id="chain-dropdown" class="dropdown-menu hidden">
+                                    <!-- Populated via JS -->
+                                </div>
+                            </div>
+                            <button id="copy-btn" class="copy-btn">
+                                <svg viewBox="0 0 24 24" fill="none" class="copy-icon">
+                                    <path
+                                        d="M8 5H6C4.89543 5 4 5.89543 4 7V19C4 20.1046 4.89543 21 6 21H16C17.1046 21 18 20.1046 18 19V17M8 5C8 6.10457 8.89543 7 10 7H12C13.1046 7 14 6.10457 14 5M8 5C8 3.89543 8.89543 3 10 3H12C13.1046 3 14 3.89543 14 5M14 5H16C17.1046 5 18 5.89543 18 7V13"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 13L22 13M22 13L19 10M22 13L19 16" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+                        <div class="template-content" aria-live="polite">
+                            <pre><code id="template-code" class="language-markdown">...</code></pre>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+
+    <!-- History Drawer -->
+    <aside id="history-drawer" class="history-drawer">
+        <div class="history-header">
+            <h3>Recent Prompts</h3>
+            <button id="close-history-btn" class="icon-btn" title="Close">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="history-container" class="history-container">
+            <!-- History items injected here -->
+        </div>
+    </aside>
+
+    <!-- Prism.js Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
